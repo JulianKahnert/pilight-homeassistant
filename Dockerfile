@@ -1,7 +1,7 @@
 
-FROM homeassistant/home-assistant:0.40
+FROM homeassistant/home-assistant:0.42.3
 MAINTAINER Julian Kahnert <mail@juliankahnert.de>
-LABEL org.freenas.version="0.40" \
+LABEL org.freenas.version="0.42.3" \
       org.freenas.upgradeable="true" \
       org.freenas.autostart="true" \
       org.freenas.expose-ports-at-host="true" \
@@ -22,4 +22,3 @@ RUN echo "deb http://apt.pilight.org/ stable main" > /etc/apt/sources.list.d/pil
     rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8123
-    

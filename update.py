@@ -31,8 +31,7 @@ tags_to_update = list(tags_docker - tags_local)
 tags_to_update.sort()
 for tag in tags_to_update:
     # generate new docker file
-    print()
-    print('processing tag: {}'.format(tag))
+    print('\n\nprocessing tag: {}'.format(tag))
     dockerfile = """
 FROM homeassistant/home-assistant:{}
 MAINTAINER Julian Kahnert <mail@juliankahnert.de>
