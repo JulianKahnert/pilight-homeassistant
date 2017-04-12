@@ -1,7 +1,7 @@
 
-FROM homeassistant/home-assistant:0.24.1
+FROM homeassistant/home-assistant:0.25
 MAINTAINER Julian Kahnert <mail@juliankahnert.de>
-LABEL org.freenas.version="0.24.1" \
+LABEL org.freenas.version="0.25" \
       org.freenas.upgradeable="true" \
       org.freenas.autostart="true" \
       org.freenas.expose-ports-at-host="true" \
