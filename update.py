@@ -65,4 +65,3 @@ EXPOSE 8123
     subprocess.run(['git', 'commit', '--all', '--message', 'Version {}'.format(tag)])
     subprocess.run(['git', 'tag', tag])
     subprocess.run(['git', 'push', '--tags'])
-    break
