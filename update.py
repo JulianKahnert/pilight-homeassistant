@@ -38,12 +38,22 @@ MAINTAINER Julian Kahnert <mail@juliankahnert.de>
 LABEL org.freenas.version="{}" \\
       org.freenas.upgradeable="true" \\
       org.freenas.autostart="true" \\
+      org.freenas.web-ui-protocol="http" \\
+      org.freenas.web-ui-port=8123 \\
+      org.freenas.web-ui-path="states" \\
       org.freenas.expose-ports-at-host="true" \\
-      org.freenas.port-mappings="8123:8123/udp,8123:8123/tcp" \\
+      org.freenas.port-mappings="8123:8123/tcp" \\
       org.freenas.volumes="[ \\
           {{ \\
               \\"name\\": \\"/config\\", \\
               \\"descr\\": \\"Home-Assistant config\\" \\
+          }} \\
+      ]"\\
+      org.freenas.settings="[ \\
+          {{ \\
+              \\"env\\": \\"TZ\\", \\
+              \\"descr\\": \\"homeassistant Container Timezone\\", \\
+              \\"optional\\": true \\
           }} \\
       ]"
 
