@@ -1,15 +1,25 @@
 
-FROM homeassistant/home-assistant:0.42.3
+FROM homeassistant/home-assistant:0.42.4
 MAINTAINER Julian Kahnert <mail@juliankahnert.de>
-LABEL org.freenas.version="0.42.3" \
+LABEL org.freenas.version="0.42.4" \
       org.freenas.upgradeable="true" \
       org.freenas.autostart="true" \
+      org.freenas.web-ui-protocol="http" \
+      org.freenas.web-ui-port=8123 \
+      org.freenas.web-ui-path="states" \
       org.freenas.expose-ports-at-host="true" \
-      org.freenas.port-mappings="8123:8123/udp,8123:8123/tcp" \
+      org.freenas.port-mappings="8123:8123/tcp" \
       org.freenas.volumes="[ \
           { \
               \"name\": \"/config\", \
               \"descr\": \"Home-Assistant config\" \
+          } \
+      ]"\
+      org.freenas.settings="[ \
+          { \
+              \"env\": \"TZ\", \
+              \"descr\": \"homeassistant Container Timezone\", \
+              \"optional\": true \
           } \
       ]"
 
@@ -22,3 +32,4 @@ RUN echo "deb http://apt.pilight.org/ stable main" > /etc/apt/sources.list.d/pil
     rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8123
+    
