@@ -74,4 +74,4 @@ EXPOSE 8123
     # v="0.42" && git commit --all --message "Version $v" && git tag $v && git push --tags
     subprocess.run(['git', 'commit', '--all', '--message', 'Version {}'.format(tag)])
     subprocess.run(['git', 'tag', tag])
-    subprocess.run(['git', 'push', '--tags'])
+    subprocess.run(['git', 'push', '--tags', 'public', 'master'])
