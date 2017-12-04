@@ -59,11 +59,17 @@ LABEL org.freenas.version="{}" \\
 
 RUN pip install bs4 lxml
 
-RUN echo "deb http://apt.pilight.org/ stable main" > /etc/apt/sources.list.d/pilight.list && \\
-    wget -O - http://apt.pilight.org/pilight.key | apt-key add - && \\
-    apt-get update && \\
-    apt-get install -y --force-yes --no-install-recommends pilight && \\
-    rm -rf /var/lib/apt/lists/*
+# Bugfix
+# https://askubuntu.com/a/211531
+RUN apt-get update
+RUN apt-get install -y --force-yes apt-transport-https
+
+# Install pilight
+RUN echo "deb http://apt.pilight.org/ stable main" > /etc/apt/sources.list.d/pilight.list
+RUN wget -O - http://apt.pilight.org/pilight.key | apt-key add -
+RUN apt-get update
+RUN apt-get install -y --force-yes pilight
+RUN rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8123
     """.format(tag, tag)
